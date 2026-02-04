@@ -99,7 +99,7 @@ int main () {
     printf("Pontos de Referencias: %i\n", pontoTuristicoPrimeiraCarta);
 
     //espaçamento por estética
-    printf("\n")
+    printf("\n");
 
     //Imprimindo ao usuário as informações da Segunda Carta
     printf("Informacoes da Carta 2:\n");
