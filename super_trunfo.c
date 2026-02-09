@@ -6,7 +6,7 @@ int main () {
     char estadoPrimeiraCarta;
     char codigoPrimeiraCarta[4];
     char nomeCidadePrimeiraCarta[15];
-    int populacaoPrimeiraCarta;
+    long int populacaoPrimeiraCarta;
     float areaPrimeiraCarta;
     float pibPrimeiraCarta;
     int pontoTuristicoPrimeiraCarta;
@@ -18,12 +18,15 @@ int main () {
     char estadoSegundaCarta;
     char codigoSegundaCarta[4];
     char nomeCidadeSegundaCarta[15];
-    int populacaoSegundaCarta;
+    long int populacaoSegundaCarta;
     float areaSegundaCarta;
     float pibSegundaCarta;
     int pontoTuristicoSegundaCarta;
     float densidadePopulacionalSegundaCarta;
     float pibPerCaptaSegundaCarta;
+
+    //Declaração das Variáveis - Comparativo
+
     
 
     //Solicitação dos dados da primeira carta!
@@ -101,6 +104,8 @@ int main () {
             densidadePopulacionalSegundaCarta = (float) (populacaoSegundaCarta/areaSegundaCarta);
             pibPerCaptaSegundaCarta = (float) (pibSegundaCarta/populacaoSegundaCarta);
 
+            //Calculo de Super Poder da Carta
+
     //Imprimindo ao usuário as informações da primeira carta
     printf("\n\nInformacoes da Carta 1:\n");
     printf("Estado: %c\n", estadoPrimeiraCarta);
@@ -112,7 +117,6 @@ int main () {
     printf("Pontos de Referencias: %i\n", pontoTuristicoPrimeiraCarta);
     printf("Densidade Populacional: %.2f habitantes por KM2\n", densidadePopulacionalPrimeiraCarta);
     printf("PIB per Capta: %.2f reais\n", pibPerCaptaPrimeiraCarta);
-
 
     //espaçamento por estética
     printf("\n");
@@ -127,7 +131,42 @@ int main () {
     printf("PIB da Cidade: %.2f\n", pibSegundaCarta);
     printf("Pontos de Referencias: %i\n", pontoTuristicoSegundaCarta);
     printf("Densidade Populacional: %.2f habitantes por km2\n", densidadePopulacionalSegundaCarta);
-    printf("PIB per Capta: %.2f reais\n", pibPerCaptaSegundaCarta);
+    printf("PIB per Capta: %.2f reais\n \n \n", pibPerCaptaSegundaCarta);
+
+    //Calculo pra criar o Super Poder da carta
+
+            //Primeira Carta
+                float pontuaçãoDensidadePrimeiraCarta = (float) (1/densidadePopulacionalPrimeiraCarta);
+                float superPoderPrimeiraCarta = (float) (populacaoPrimeiraCarta + areaPrimeiraCarta + pibPrimeiraCarta + pontoTuristicoPrimeiraCarta + pibPerCaptaPrimeiraCarta + pontuaçãoDensidadePrimeiraCarta);
+
+            //Segunda Carta
+                float pontuaçãoDensidadeSegundaCarta = (float) (1/densidadePopulacionalSegundaCarta);
+                float superPoderSegundaCarta = (float) (populacaoSegundaCarta + areaSegundaCarta + pibSegundaCarta + pontoTuristicoSegundaCarta + pibPerCaptaSegundaCarta + pontuaçãoDensidadeSegundaCarta);
+    //        
+
+    //Calculos para verificar vencedores
+       int resultadoPopulacao = (int) populacaoPrimeiraCarta > populacaoSegundaCarta;
+       int resultadoArea = (int) areaPrimeiraCarta > areaSegundaCarta;
+       int resultadoPib = (int) pibPrimeiraCarta > pibSegundaCarta;
+       int resultadoPontosTuristicos = (int)  pontoTuristicoPrimeiraCarta > pontoTuristicoSegundaCarta;
+       int resultadoDensidade = (int) densidadePopulacionalPrimeiraCarta < densidadePopulacionalSegundaCarta;
+       int resultadoPibPerCapta = (int) pibPerCaptaPrimeiraCarta > pibPerCaptaSegundaCarta;
+       int resultadoSuperPoder = (int) superPoderPrimeiraCarta > superPoderSegundaCarta;
+            
+    //Exibição dos resultados
+    printf("Hora de Verificarmos os resultados!\n");
+    printf("Se o resultado for '1' significa que a primeira carta Venceu!\n");
+    printf("Se o resultado for '0' significa que a segunda carta venceu!\n");
+    printf("\n");
+    printf("Resultado População: %i \n", resultadoPopulacao);
+    printf("Resultado Area: %i \n", resultadoArea);
+    printf("Resultado Pib: %i \n", resultadoPib);
+    printf("Resultado Pontos Turísticos: %i \n", resultadoPontosTuristicos);
+    printf("Resultado Densidade Populacional: %i \n", resultadoDensidade);
+    printf("Resultado Pib Per Capta: %i\n", resultadoPibPerCapta);
+    printf("Resultado Super Poder: %i \n", resultadoPibPerCapta);
+
+
 
     //função de retorno
     return 0;
